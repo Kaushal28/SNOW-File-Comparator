@@ -1,0 +1,11 @@
+{
+    "username": "",
+    "password": "",
+    "git_repo_link": "",
+    "old_branch": "master",
+    "latest_branch": "develop",
+    "clone_dir": "test_clone",
+    "instance_of_old_app": "",
+    "delete_not_allowed": ["sys_db_object", "sys_ui_page", "sysauto_script", "sys_script", "sys_script_include", "sys_ui_action", "sysevent_register" ,
+                            "sysevent_script_action", "sys_script_client", "sys_user_role", "sys_security_acl", "ecc_agent_script_include"]
+}
