@@ -32,21 +32,22 @@ def exists_in_other_dict(class_name, file_name, all_files):
 def is_delete_allowed(class_name, delete_not_allowed):
     return not (class_name in delete_not_allowed)
 
-instance = '<your_instance>'
-username, password, repo_link, latest_branch, old_branch, clone_path, instance, delete_not_allowed = get_config()
-update_dir = os.path.join(clone_path, 'update')
-repository = Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
-repository.git.checkout(latest_branch)
-latest_files = get_class_sys_id_dict(update_dir)
-repository.git.checkout(old_branch)
-old_files = get_class_sys_id_dict(update_dir)
+if __name__ == '__main__':
+    instance = '<your_instance>'
+    username, password, repo_link, latest_branch, old_branch, clone_path, instance, delete_not_allowed = get_config()
+    update_dir = os.path.join(clone_path, 'update')
+    repository = Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
+    repository.git.checkout(latest_branch)
+    latest_files = get_class_sys_id_dict(update_dir)
+    repository.git.checkout(old_branch)
+    old_files = get_class_sys_id_dict(update_dir)
 
-#Find difference
-deleted_files = ''
-for a_class in old_files.keys():
-    for a_file in old_files[a_class]:
-        if not exists_in_other_dict(a_class, a_file, latest_files) and not is_delete_allowed(a_class, delete_not_allowed):
-            deleted_files += f'https://{instance}.service-now.com/{a_class}.do?sys_id={a_file}\n'
+    #Find difference
+    deleted_files = ''
+    for a_class in old_files.keys():
+        for a_file in old_files[a_class]:
+            if not exists_in_other_dict(a_class, a_file, latest_files) and not is_delete_allowed(a_class, delete_not_allowed):
+                deleted_files += f'https://{instance}.service-now.com/{a_class}.do?sys_id={a_file}\n'
 
-with open ('Deleted Files.txt', 'w+') as file:
-    file.write(deleted_files)
+    with open ('Deleted Files.txt', 'w+') as file:
+        file.write(deleted_files)
