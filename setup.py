@@ -3,12 +3,12 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="snow-compare",
-    packages=['snow-compare'],
-    package_dir={'snow-compare': 'snow-compare'},
+    name="snowcomp",
+    packages=['snowcomp'],
+    package_dir={'snowcomp': 'snowcomp'},
     version="0.0.1",
     author="kaushal28",
-    entry_points={'console_scripts': ['snow-compare = snow-compare.__main__:main' ]},
+    entry_points={'console_scripts': ['snowcomp = snowcomp.__main__:main' ]},
     author_email="shah.kaushal95@gmail.com",
     description="Compares files different different branches and spits out deleted files",
     url="https://github.com/Kaushal28/SNOW-File-Comparator.git",
