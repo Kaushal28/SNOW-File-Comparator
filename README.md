@@ -2,7 +2,8 @@
 Compares files from different branches and spits out deleted files
 
 # How to install?
-Run following command in terminal to install SNOW Comparator (snowcomp) module
+Run following command in terminal to install SNOW Comparator (snowcomp) module:
+
 `pip install snowcomp`
 
 # How to use?
