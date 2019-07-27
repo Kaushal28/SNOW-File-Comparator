@@ -27,3 +27,7 @@ Now run following command in the directory where above `config.json` is saved.
 <pre>python -m snowcomp</pre>
 
 This will create a file named `Deleted Files.txt` having links to deleted files.
+
+## Note
+
+Supports Python 3.x
