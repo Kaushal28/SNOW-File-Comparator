@@ -29,5 +29,4 @@ Now run following command in the directory where above `config.json` is saved.
 This will create a file named `Deleted Files.txt` having links to deleted files.
 
 ## Note
-
 Supports Python 3.x
