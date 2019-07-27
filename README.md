@@ -4,7 +4,7 @@ Compares files from different branches and spits out deleted files
 # How to install?
 Run following command in terminal to install SNOW Comparator (snowcomp) module:
 
-`pip install snowcomp`
+<pre>pip install snowcomp</pre>
 
 # How to use?
 Create a configuration file (`config.json`) having information related branches to compare, Git repository etc.
@@ -24,6 +24,6 @@ You can add more classes in `delete_not_allowed` key. Currently only the files f
 
 Now run following command in the directory where above `config.json` is saved.
 
-`python -m snowcomp`
+<pre>python -m snowcomp</pre>
 
 This will create a file named `Deleted Files.txt` having links to deleted files.
