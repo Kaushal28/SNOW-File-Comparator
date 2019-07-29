@@ -7,7 +7,7 @@ Run following command in terminal to install SNOW Comparator (snowcomp) module:
 <pre>pip install snowcomp</pre>
 
 # How to use?
-Create a configuration file (`config.json`) having information related branches to compare, Git repository etc.
+Create a configuration file (`conf.json`) having information related branches to compare, Git repository etc.
 
 <pre>{
     "username": "[your_username]",
