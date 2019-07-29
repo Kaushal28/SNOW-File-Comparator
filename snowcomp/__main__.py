@@ -39,20 +39,23 @@ def is_ignored(class_name, ignored):
     return class_name in ignored
 
 if __name__ == '__main__':
-    username, password, repo_link, latest_branch, old_branch, clone_path, instance, ignore_deletions = get_config()
-    update_dir = os.path.join(clone_path, 'update')
-    repository = Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
-    repository.git.checkout(latest_branch)
-    latest_files = get_class_sys_id_dict(update_dir)
-    repository.git.checkout(old_branch)
-    old_files = get_class_sys_id_dict(update_dir)
+    try:
+        username, password, repo_link, latest_branch, old_branch, clone_path, instance, ignore_deletions = get_config()
+        update_dir = os.path.join(clone_path, 'update')
+        repository = Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
+        repository.git.checkout(latest_branch)
+        latest_files = get_class_sys_id_dict(update_dir)
+        repository.git.checkout(old_branch)
+        old_files = get_class_sys_id_dict(update_dir)
 
-    #Find difference
-    deleted_files = ''
-    for a_class in old_files.keys():
-        for a_file in old_files[a_class]:
-            if not exists_in_other_dict(a_class, a_file, latest_files) and not is_ignored(a_class, ignore_deletions):
-                deleted_files += f'https://{instance}.service-now.com/{a_class}.do?sys_id={a_file}\n'
+        #Find difference
+        deleted_files = ''
+        for a_class in old_files.keys():
+            for a_file in old_files[a_class]:
+                if not exists_in_other_dict(a_class, a_file, latest_files) and not is_ignored(a_class, ignore_deletions):
+                    deleted_files += f'https://{instance}.service-now.com/{a_class}.do?sys_id={a_file}\n'
 
-    with open ('Deleted Files.txt', 'w+') as file:
-        file.write(deleted_files)
+        with open ('Deleted Files.txt', 'w+') as file:
+            file.write(deleted_files)
+    except Exception as ex:
+        print (ex)
