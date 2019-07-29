@@ -10,15 +10,16 @@ Run following command in terminal to install SNOW Comparator (snowcomp) module:
 Create a configuration file (`conf.json`) having information related branches to compare, Git repository etc.
 
 <pre>{
-    "username": "[your_username]",
-    "password": "[your_password]",
-    "git_repo_link": "[link_of_git_repo]",
+    "username": "<your_username>",
+    "password": "<your_password>",
+    "git_repo_link": "<link_of_git_repo>",
     "old_branch": "master",
     "latest_branch": "develop",
     "clone_dir": "test_clone",
-    "instance_of_old_app": "[venXXXXX]",
-    "ignore_deletions": ["sys_dictionary", "sys_documentation", "ua_table_licensing_config", "wf_workflow_version", 
-                        "wf_activity", "wf_condition", "sys_variable_value", "wf_transition", "wf_estimated_runtime_config"]
+    "instance_of_old_app": "<optional: venXXXXX>",
+    "ignore_deletions":  ["sys_dictionary", "sys_documentation", "ua_table_licensing_config", "wf_workflow_version", 
+                        "wf_activity", "wf_condition", "sys_variable_value", "wf_transition", "wf_estimated_runtime_config", 
+                        "sys_scope_privilege", "sys_wizard_answer", "sys_ui_view", "sys_metadata_link", "sys_embedded_help_role"]
 }</pre>
 
 You can add more classes in `delete_not_allowed` key. Currently only the files from above classes will be displayed if they are deleted from the new application.
