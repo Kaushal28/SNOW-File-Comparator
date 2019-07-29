@@ -22,9 +22,9 @@ Create a configuration file (`conf.json`) having information related branches to
                         "sys_scope_privilege", "sys_wizard_answer", "sys_ui_view", "sys_metadata_link", "sys_embedded_help_role"]
 }</pre>
 
-You can add more classes in `delete_not_allowed` key. Currently only the files from above classes will be displayed if they are deleted from the new application.
+You can add more classes in `ignore_deletions` list. File deletions from this list will be ignored and won't be shown as deleted files (Will be considered valid deletions). 
 
-Now run following command in the directory where above `config.json` is saved.
+Now run following command in the directory where above `conf.json` is saved.
 
 <pre>python -m snowcomp</pre>
 
