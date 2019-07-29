@@ -17,7 +17,8 @@ Create a configuration file (`config.json`) having information related branches 
     "latest_branch": "develop",
     "clone_dir": "test_clone",
     "instance_of_old_app": "[venXXXXX]",
-    "ignore_deletions": ["sys_dictionary", "ua_table_licensing_config"]
+    "ignore_deletions": ["sys_dictionary", "sys_documentation", "ua_table_licensing_config", "wf_workflow_version", 
+                        "wf_activity", "wf_condition", "sys_variable_value", "wf_transition", "wf_estimated_runtime_config"]
 }</pre>
 
 You can add more classes in `delete_not_allowed` key. Currently only the files from above classes will be displayed if they are deleted from the new application.
