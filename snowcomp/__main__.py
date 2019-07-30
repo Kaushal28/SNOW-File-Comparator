@@ -42,7 +42,8 @@ if __name__ == '__main__':
     try:
         username, password, repo_link, latest_branch, old_branch, clone_path, instance, ignore_deletions = get_config()
         update_dir = os.path.join(clone_path, 'update')
-        repository = Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
+        # If repo already exists, don't clone
+        repository = Repo(clone_path, search_parent_directories = True) if os.path.isdir(clone_path) else Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
         repository.git.checkout(latest_branch)
         latest_files = get_class_sys_id_dict(update_dir)
         repository.git.checkout(old_branch)
