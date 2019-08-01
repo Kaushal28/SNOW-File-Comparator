@@ -6,7 +6,7 @@ setuptools.setup(
     name="snowcomp",
     packages=['snowcomp'],
     package_dir={'snowcomp': 'snowcomp'},
-    version="1.8",
+    version="2.0",
     author="kaushal28",
     entry_points={'console_scripts': ['snowcomp = snowcomp.__main__:main' ]},
     author_email="shah.kaushal95@gmail.com",

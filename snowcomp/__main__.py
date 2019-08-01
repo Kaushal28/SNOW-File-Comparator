@@ -1,6 +1,6 @@
 from git import Repo
 import xml.etree.ElementTree as ET
-import os, json
+import os, json, urllib.parse as urlencode
 
 def get_config():
     with open('conf.json', 'r') as conf_file:
@@ -41,6 +41,8 @@ def is_ignored(class_name, ignored):
 if __name__ == '__main__':
     try:
         username, password, repo_link, latest_branch, old_branch, clone_path, instance, ignore_deletions = get_config()
+        #url encode username and password
+        username, password = urlencode.quote_plus(username), urlencode.quote_plus(password)
         update_dir = os.path.join(clone_path, 'update')
         # If repo already exists, don't clone
         repository = Repo(clone_path, search_parent_directories = True) if os.path.isdir(clone_path) else Repo.clone_from(f'{repo_link[:8]}{username}:{password}@{repo_link[8:]}', clone_path)
