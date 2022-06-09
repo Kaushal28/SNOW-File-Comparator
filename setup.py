@@ -15,7 +15,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[
-        'GitPython == 2.1.11'
+        'GitPython == 2.1.15'
    ],
    classifiers=[
         "Programming Language :: Python :: 3",
